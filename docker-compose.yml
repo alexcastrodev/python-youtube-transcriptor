@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  vosk-transcriber:
+    build: .
+    volumes:
+      - ./model:/app/model
+      - ./output:/app/output
+    command: ["python", "app.py", "https://youtu.be/0JUN9aDxVmI?si=acgotEqmnDUiVL4X"]
+    deploy:
+      resources:
+        limits:
+          memory: 4G 
